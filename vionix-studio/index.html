@@ -56,7 +56,14 @@
         <a href="https://www.instagram.com/">Instagram</a> | 
         <a href="https://www.facebook.com/">Facebook</a> 
       </p> </footer> <script> 
-        // --- SLIDER AUTOMÁTICO --- document.addEventListener("DOMContentLoaded", () => { const slides = document.querySelectorAll(".hero-studio .slide"); let current = 0; function showNextSlide() { slides[current].classList.remove("active"); current = (current + 1) % slides.length; slides[current].classList.add("active"); } // Cambia cada 4 segundos setInterval(showNextSlide, 4000); }); 
+        // --- SLIDER AUTOMÁTICO ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const slides = document.querySelectorAll(".hero-studio .slide");
+            let current = 0; function showNextSlide() {
+                slides[current].classList.remove("active");
+                current = (current + 1) % slides.length; slides[current].classList.add("active"); }
+        // Cambia cada 4 segundos
+            setInterval(showNextSlide, 4000); });
 </script> 
 </body> 
 </html>
