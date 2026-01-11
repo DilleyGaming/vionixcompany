@@ -171,7 +171,17 @@ section h2 {
   padding: 1rem 2rem;
   border-radius: 10px;
   font-weight: 500;
+  text-decoration: none;   /* quita subrayado */
+  color: white;            /* quita azul */
+  transition: all 0.3s ease;
 }
+
+.cliente:hover {
+  background-color: var(--azul);
+  color: #000;
+  transform: translateY(-4px);
+}
+
 
 /* ---------- CONTACTO ---------- */
 #contacto p {
@@ -314,4 +324,5 @@ footer a:hover {
   z-index: 2;
   padding: 20px;
 }
+
 
