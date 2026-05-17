@@ -2,61 +2,160 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VIONIX AI | Automatización Inteligente</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>VIONIX AI | Automatización e Inteligencia Artificial</title>
+  <meta name="description" content="VIONIX AI: automatización inteligente, chatbots 24/7, analítica predictiva y sistemas IA para empresas que quieren crecer eficientemente.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://vionixcompany.com/vionix-ai/">
+  <meta property="og:title" content="VIONIX AI | Automatización e Inteligencia Artificial">
+  <meta property="og:url" content="https://vionixcompany.com/vionix-ai/">
   <link rel="apple-touch-icon" href="../img/Logos/Logo-Prin.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#03070f">
   <link rel="shortcut icon" href="../img/Logos/Logo-Prin.png" type="image/png">
-  <meta name="description" content="VIONIX AI: automatización, inteligencia artificial y eficiencia digital para empresas.">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
+  <style>
+    .scanlines{position:fixed;inset:0;z-index:9998;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px)}
+    .metrics-row{display:flex;gap:0;border:1px solid rgba(0,212,255,.15);border-radius:2px;overflow:hidden;width:fit-content;margin:40px auto 0;background:rgba(6,13,26,.6);backdrop-filter:blur(12px)}
+    .met{padding:20px 36px;text-align:center;position:relative}
+    .met+.met::before{content:'';position:absolute;left:0;top:20%;height:60%;width:1px;background:rgba(0,212,255,.15)}
+    .met-n{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--accent);display:block;line-height:1}
+    .met-l{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:4px;display:block}
+    @media(max-width:600px){.metrics-row{flex-direction:column;width:100%}.met+.met::before{display:none}}
+  </style>
+    <style>
+    /* Subpage mobile overrides */
+    @media(max-width:768px){
+      .tech-bar,.redes-pills,.metrics-row{gap:8px;margin-top:24px}
+      .tech-pill,.red-pill{font-size:.65rem;padding:6px 12px}
+      .met{padding:14px 20px}
+      .met-n{font-size:1.8rem}
+      .cards-grid{grid-template-columns:1fr;gap:2px}
+      nav,.cta-hdr{display:none}
+      .burger{display:flex}
+      .hdr{padding:0 20px}
+      .cta-strip-inner{padding:48px 20px;flex-direction:column;gap:24px;text-align:center}
+      .cta-strip-right{justify-content:center;width:100%}
+      footer{padding:28px 20px 20px}
+      .footer-top{flex-direction:column;gap:16px}
+      .footer-bottom{flex-direction:column;gap:4px}
+    }
+    @media(max-width:480px){
+      .btn-primary,.btn-ghost{width:100%;justify-content:center;clip-path:none !important;border-radius:4px}
+      .sub-title{font-size:clamp(2.4rem,13vw,4rem) !important}
+    }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>VIONIX AI</h1>
+<div id="cur"></div><div id="cur2"></div>
+<div class="scanlines"></div>
+
+<div id="loader">
+  <div class="ld-grid"><div class="ld-cell"></div><div class="ld-cell"></div><div class="ld-cell"></div><div class="ld-cell"></div><div class="ld-cell"></div></div>
+  <img src="../img/Logos/Logo-Prin.png" alt="VIONIX" class="ld-logo">
+  <div class="ld-text">VIONIX</div>
+  <div class="ld-pct" id="ldPct">INICIANDO SISTEMA...</div>
+</div>
+
+<header>
+  <div class="hdr">
+    <a href="../index.html" class="logo"><img src="../img/Logos/Logo-Prin.png" alt="VIONIX"><span class="logo-txt">VIONIX</span></a>
     <nav>
-      <a href="../index.html">Inicio</a>
-      <a href="#soluciones">Soluciones</a>
-      <a href="#contacto">Contacto</a>
+      <a href="../index.html" class="nl">← Inicio</a>
+      <a href="#soluciones" class="nl">Soluciones</a>
+      <a href="#contacto" class="nl">Contacto</a>
     </nav>
-  </header>
+    <a href="#contacto" class="cta-hdr">Automatizar →</a>
+    <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mnav" id="mnav">
+  <a href="../index.html" class="mnl">← Volver a VIONIX</a>
+  <a href="#soluciones" class="mnl">Soluciones</a>
+  <a href="#contacto" class="mnl">Contacto</a>
+</div>
 
-  <section class="hero" id="inicio">
-    <h2>Automatización e Inteligencia para tu negocio</h2>
-    <p>En VIONIX AI implementamos sistemas inteligentes que simplifican procesos, ahorran tiempo y aumentan la productividad de tu empresa.</p>
-  </section>
-
-  <section id="soluciones">
-    <h2>Nuestras Soluciones Inteligentes</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Chatbots y Asistentes</h3>
-        <p>Atiende a tus clientes las 24 horas con bots conversacionales integrados.</p>
-      </div>
-      <div class="card">
-        <h3>Automatización de Tareas</h3>
-        <p>Digitaliza tus procesos y deja que la IA se encargue de lo repetitivo.</p>
-      </div>
-      <div class="card">
-        <h3>Analítica Predictiva</h3>
-        <p>Convierte tus datos en decisiones inteligentes con análisis avanzados.</p>
-      </div>
+<section class="sub-hero" id="inicio" style="background:radial-gradient(ellipse at 30% 50%,rgba(124,58,237,.08),transparent 60%)">
+  <div class="sub-hero-orb1" style="background:radial-gradient(circle,rgba(124,58,237,.1),transparent 70%)"></div>
+  <div class="sub-hero-orb2"></div>
+  <canvas id="heroCanvas" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+  <div style="position:relative;z-index:2;text-align:center" class="sub-hero-content">
+    <span class="sub-eyebrow r">// División AI · VIONIX</span>
+    <h1 class="sub-title r delay-1">EL FUTURO<br><em>ES AHORA</em></h1>
+    <p class="sub-desc r delay-2">Implementamos sistemas de IA que automatizan lo repetitivo, aprenden de tus datos y escalan con tu negocio sin parar.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap" class="r delay-3">
+      <a href="#contacto" class="btn-primary">Automatizar mi empresa <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+      <a href="#soluciones" class="btn-ghost">Ver soluciones</a>
     </div>
-  </section>
+    <div class="metrics-row r delay-4">
+      <div class="met"><span class="met-n">80%</span><span class="met-l">Menos tareas manuales</span></div>
+      <div class="met"><span class="met-n">24/7</span><span class="met-l">Disponibilidad</span></div>
+      <div class="met"><span class="met-n">3×</span><span class="met-l">Más productividad</span></div>
+    </div>
+  </div>
+</section>
 
-  <section id="contacto">
-    <h2>Impulsa tu negocio con IA</h2>
-    <p>Conecta tus sistemas, reduce costes y aumenta la eficiencia.</p>
-    <p>Email: <a href="mailto:vionixservice@hotmail.com">vionixservice@hotmail.com</a></p>
-    <a href="../index.html" class="btn">Volver a VIONIX</a>
-  </section>
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item"><span>✦</span> Chatbots IA</span><div class="marquee-div"></div>
+    <span class="marquee-item"><span>✦</span> Automatización</span><div class="marquee-div"></div>
+    <span class="marquee-item"><span>✦</span> Machine Learning</span><div class="marquee-div"></div>
+    <span class="marquee-item"><span>✦</span> Analítica Predictiva</span><div class="marquee-div"></div>
+    <span class="marquee-item"><span>✦</span> Integración de APIs</span><div class="marquee-div"></div>
+    <span class="marquee-item"><span>✦</span> NLP</span><div class="marquee-div"></div>
+    <span class="marquee-item"><span>✦</span> Chatbots IA</span><div class="marquee-div"></div>
+    <span class="marquee-item"><span>✦</span> Automatización</span><div class="marquee-div"></div>
+    <span class="marquee-item"><span>✦</span> Machine Learning</span><div class="marquee-div"></div>
+    <span class="marquee-item"><span>✦</span> Analítica Predictiva</span><div class="marquee-div"></div>
+    <span class="marquee-item"><span>✦</span> Integración de APIs</span><div class="marquee-div"></div>
+    <span class="marquee-item"><span>✦</span> NLP</span><div class="marquee-div"></div>
+  </div>
+</div>
 
-  <footer>
-    <p>© 2025 VIONIX AI</p>
-    <p>
-      <a href="https://www.linkedin.com/">LinkedIn</a> |
-      <a href="https://www.instagram.com/">Instagram</a> |
-      <a href="https://www.facebook.com/">Facebook</a>
-    </p>
-  </footer>
+<section class="section" id="soluciones" style="text-align:center">
+  <div class="sec-eyebrow r" style="justify-content:center"><div class="sec-line"></div><span class="sec-tag">Soluciones IA</span></div>
+  <h2 class="sec-title r">IA PARA CADA<br><em>NECESIDAD</em></h2>
+  <p class="sec-sub r" style="margin:0 auto 64px">Desde chatbots hasta analítica avanzada, tenemos la herramienta perfecta para cada reto empresarial.</p>
+  <div class="cards-grid r">
+    <div class="feat-card"><div class="fc-icon">🤖</div><div class="fc-title">Chatbots y Asistentes</div><p class="fc-desc">Atiende a tus clientes las 24 horas con bots conversacionales integrados en web, WhatsApp o Instagram.</p></div>
+    <div class="feat-card"><div class="fc-icon">⚙️</div><div class="fc-title">Automatización de Flujos</div><p class="fc-desc">Digitaliza y automatiza tus procesos de negocio. Deja que la IA gestione lo repetitivo mientras creces.</p></div>
+    <div class="feat-card"><div class="fc-icon">📈</div><div class="fc-title">Analítica Predictiva</div><p class="fc-desc">Convierte tus datos en decisiones estratégicas con modelos de machine learning adaptados a tu sector.</p></div>
+    <div class="feat-card"><div class="fc-icon">🔗</div><div class="fc-title">Integración de Sistemas</div><p class="fc-desc">Conectamos tus herramientas actuales con APIs de IA sin interrumpir las operaciones de tu negocio.</p></div>
+    <div class="feat-card"><div class="fc-icon">📝</div><div class="fc-title">Generación de Contenido</div><p class="fc-desc">Automatiza la creación de descripciones de producto, emails de marketing y reportes con IA generativa.</p></div>
+    <div class="feat-card"><div class="fc-icon">🎯</div><div class="fc-title">Personalización Masiva</div><p class="fc-desc">Ofrece experiencias únicas a cada cliente con sistemas de recomendación y segmentación inteligente.</p></div>
+  </div>
+</section>
+
+<div class="cta-strip" id="contacto">
+  <div class="cta-strip-bg"></div>
+  <div class="cta-strip-inner">
+    <div class="r"><h2>¿LISTO PARA<br><span>AUTOMATIZAR?</span></h2><p>Cuéntanos tus procesos y te mostramos cómo la IA puede transformarlos.</p></div>
+    <div class="cta-strip-right r delay-1">
+      <a href="mailto:contacto@vionix.com" class="btn-primary">Hablar con experto <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+      <a href="../index.html" class="btn-ghost">← Volver</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand"><img src="../img/Logos/Logo-Prin.png" alt="VIONIX"><span>VIONIX AI</span></div>
+    <div class="footer-links">
+      <a href="../index.html">Inicio</a>
+      <a href="../vionix-web/index.html">VIONIX Web</a>
+      <a href="../vionix-studio/index.html">VIONIX Studio</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 VIONIX — División AI</span>
+    <span class="footer-tech">// WEB · AI · STUDIO</span>
+  </div>
+</footer>
+
+<button id="btt" aria-label="Volver arriba"><svg viewBox="0 0 24 24" fill="none"><path d="M18 15l-6-6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+<script src="../main.js"></script>
 </body>
 </html>
