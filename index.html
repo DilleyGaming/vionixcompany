@@ -31,7 +31,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ── HERO ESPECÍFICO ── */
     .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:calc(var(--hdr) + 80px) 40px 80px;position:relative;overflow:hidden}
     #heroCanvas{position:absolute;inset:0;width:100%;height:100%}
     .hero-orb{position:absolute;border-radius:50%;pointer-events:none}
@@ -57,31 +56,17 @@
     .hs-n{font-family:'Outfit',sans-serif;font-weight:900;font-size:2.4rem;letter-spacing:.05em;color:var(--accent);display:block;line-height:1}
     .hs-l{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:4px;display:block}
     .hs-plus{font-family:'Outfit',sans-serif;font-weight:900;font-size:1.4rem;color:var(--accent)}
-    /* terminal */
-    .hero-terminal{position:absolute;bottom:40px;right:40px;width:260px;background:rgba(6,13,26,.8);border:1px solid rgba(0,212,255,.15);border-radius:6px;overflow:hidden;z-index:2;font-size:.72rem;font-family:monospace}
-    .term-header{background:rgba(0,212,255,.08);padding:8px 12px;display:flex;align-items:center;gap:6px;border-bottom:1px solid rgba(0,212,255,.1)}
-    .term-dot{width:8px;height:8px;border-radius:50%}
-    .td1{background:#ff5f56}.td2{background:#ffbd2e}.td3{background:#27c93f}
-    .term-title{margin-left:auto;color:var(--muted);font-size:.65rem}
-    .term-body{padding:12px;color:var(--green);line-height:2}
-    .term-line{overflow:hidden;white-space:nowrap}
-    .term-cursor{display:inline-block;width:6px;height:11px;background:var(--green);animation:termBlink .8s step-end infinite;vertical-align:middle;margin-left:2px}
-    @keyframes termBlink{50%{opacity:0}}
-    /* scroll hint */
     .scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--dim);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;z-index:2}
     .scroll-mouse{width:22px;height:34px;border:1.5px solid var(--dim);border-radius:11px;position:relative}
-    /* V watermark */
+    .scroll-wheel{width:3px;height:6px;background:var(--accent);border-radius:2px;position:absolute;top:6px;left:50%;transform:translateX(-50%);animation:scrollWh 2s ease-in-out infinite}
+    @keyframes scrollWh{0%{transform:translateX(-50%) translateY(0);opacity:1}100%{transform:translateX(-50%) translateY(12px);opacity:0}}
     .v-watermark{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:1;overflow:hidden}
     .v-watermark img{width:min(700px,90vw);height:auto;opacity:.04;filter:blur(2px) brightness(2);animation:vPulse 8s ease-in-out infinite}
     @keyframes vPulse{0%,100%{opacity:.04;transform:scale(1)}50%{opacity:.065;transform:scale(1.04)}}
-    /* Proceso step effects */
     .proc-num-wrap{transition:all .4s var(--ease)}
     .proc-step:hover .proc-num-wrap{background:rgba(0,212,255,.06);box-shadow:0 0 30px rgba(0,212,255,.2),inset 0 0 20px rgba(0,212,255,.05)}
     .proc-step:hover .proc-num{color:var(--white)}
     .proc-step:hover .proc-title{color:var(--accent)}
-    .scroll-wheel{width:3px;height:6px;background:var(--accent);border-radius:2px;position:absolute;top:6px;left:50%;transform:translateX(-50%);animation:scrollWh 2s ease-in-out infinite}
-    @keyframes scrollWh{0%{transform:translateX(-50%) translateY(0);opacity:1}100%{transform:translateX(-50%) translateY(12px);opacity:0}}
-    /* divisiones */
     .div-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.08)}
     .div-card{background:var(--c1);padding:48px 36px;position:relative;overflow:hidden;transition:background .4s,transform .4s var(--ease);display:flex;flex-direction:column;cursor:none}
     .div-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);transform:scaleX(0);transform-origin:center;transition:transform .5s var(--ease)}
@@ -103,23 +88,15 @@
     .div-link:hover svg{transform:translateX(4px)}
     .div-glow{position:absolute;bottom:-60px;right:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(0,212,255,.08),transparent 70%);pointer-events:none;transition:all .5s}
     .div-card:hover .div-glow{width:280px;height:280px}
-    /* scanlines */
     .scanlines{position:fixed;inset:0;z-index:9998;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px)}
     @media(max-width:1024px){.div-grid{grid-template-columns:1fr}}
     @media(max-width:768px){
       .div-card{cursor:auto}
-      .div-card:active{background:var(--c2)}
-      .div-card:active::before{transform:scaleX(1)}
-      .div-link:active{gap:14px}
-    }
-    /* Hero mobile */
-    @media(max-width:768px){
       .hero{padding:calc(var(--hdr)+52px) 20px 80px}
       .hero-ctas{margin-bottom:40px}
       .hero-stats{flex-direction:row;flex-wrap:wrap;width:100%;border:none;background:none;gap:0;backdrop-filter:none}
       .hs{flex:1 1 50%;padding:14px 10px;background:rgba(6,13,26,.5);border:1px solid rgba(0,212,255,.1)}
       .hs+.hs::before{display:none}
-      .hero-terminal{display:none}
       .orb1{width:400px;height:400px}
       .orb2{width:350px;height:350px}
       .orb3{width:250px;height:250px}
@@ -144,7 +121,6 @@
 <div id="cur2"></div>
 <div class="scanlines"></div>
 
-<!-- LOADER -->
 <div id="loader">
   <div class="ld-grid">
     <div class="ld-cell"></div><div class="ld-cell"></div><div class="ld-cell"></div><div class="ld-cell"></div><div class="ld-cell"></div>
@@ -154,7 +130,6 @@
   <div class="ld-pct" id="ldPct">INICIANDO SISTEMA...</div>
 </div>
 
-<!-- HEADER -->
 <header>
   <div class="hdr">
     <a href="#inicio" class="logo">
@@ -179,10 +154,8 @@
   <a href="#contacto" class="mnl">Contacto</a>
 </div>
 
-<!-- ══ HERO ══ -->
 <section class="hero" id="inicio">
   <canvas id="heroCanvas" style="touch-action:none"></canvas>
-  <!-- V watermark -->
   <div class="v-watermark">
     <img src="./img/Logos/Logo-Prin.png" alt="" aria-hidden="true">
   </div>
@@ -192,23 +165,19 @@
 
   <div class="hero-content">
     <div class="hero-tag r"><span class="htag-dot"></span>Agencia Digital · España · Est. 2024</div>
-
     <h1 class="hero-title r delay-1">
       <span class="title-sub">Innovación</span>
       <span class="title-main">DIGITAL</span>
       <span class="title-accent">INTEGRAL</span>
     </h1>
-
     <p class="hero-desc r delay-2">
       Transformamos negocios con tecnología de vanguardia.<br>
       Web · Inteligencia Artificial · Creación de Contenido.
     </p>
-
     <div class="hero-ctas r delay-3">
       <a href="#servicios" class="btn-primary">Explorar Servicios <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
       <a href="#contacto" class="btn-ghost">Hablemos</a>
     </div>
-
     <div class="hero-stats r delay-4">
       <div class="hs">
         <span><span class="hs-n" data-target="10">0</span><span class="hs-plus">+</span></span>
@@ -229,7 +198,6 @@
   </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee-section">
   <div class="marquee-track">
     <span class="marquee-item"><span>✦</span> Desarrollo Web</span><div class="marquee-div"></div>
@@ -251,7 +219,6 @@
   </div>
 </div>
 
-<!-- ══ DIVISIONES ══ -->
 <section class="section" id="servicios">
   <div class="sec-eyebrow r"><div class="sec-line"></div><span class="sec-tag">01 — Divisiones</span></div>
   <h2 class="sec-title r">NUESTRO<br><em>ECOSISTEMA</em></h2>
@@ -291,7 +258,6 @@
   </div>
 </section>
 
-<!-- TICKER -->
 <div class="ticker-bar">
   <div class="ticker-inner">
     <div class="tk r"><span class="tk-n" data-target="10">0</span><span class="tk-accent">+</span><span class="tk-l">Clientes Activos</span></div>
@@ -301,7 +267,6 @@
   </div>
 </div>
 
-<!-- ══ PROCESO ══ -->
 <div class="proceso-section">
   <div class="proceso-inner">
     <div class="sec-eyebrow r"><div class="sec-line"></div><span class="sec-tag">02 — Metodología</span></div>
@@ -315,9 +280,7 @@
   </div>
 </div>
 
-<!-- ══ CLIENTES ══ -->
 <section class="section" id="clientes" style="position:relative">
-  <!-- V bg watermark clientes -->
   <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:0;overflow:hidden;width:100%;display:flex;justify-content:center">
     <img src="./img/Logos/Logo-Prin.png" alt="" aria-hidden="true" style="width:min(500px,70vw);opacity:.025;filter:blur(3px) brightness(2)">
   </div>
@@ -326,39 +289,39 @@
 
   <div class="clients-hex" style="position:relative;z-index:1">
     <a href="https://maps.google.com/?q=Cuchillas+Castillo" target="_blank" rel="noopener" class="cli r">
-      <img src="./img/cuchillas_castillo.png" alt="Cuchillas Castillo" class="cli-logo cli-logo-color">
+      <img src="./img/Logos/cuchillas_castillo.png" alt="Cuchillas Castillo" class="cli-logo cli-logo-color">
       <span class="cli-name">Cuchillas Castillo</span>
     </a>
     <a href="https://maps.google.com/?q=Restaurante+Raices" target="_blank" rel="noopener" class="cli r delay-1">
-      <img src="./img/raices.png" alt="Raíces Coffee & Bar" class="cli-logo">
+      <img src="./img/Logos/raices.png" alt="Raíces Coffee & Bar" class="cli-logo">
       <span class="cli-name">Raíces Coffee & Bar</span>
     </a>
     <a href="https://maps.google.com/?q=Abrasados" target="_blank" rel="noopener" class="cli r delay-2">
-      <img src="./img/abrasados.png" alt="Abrasados" class="cli-logo">
+      <img src="./img/Logos/abrasados.png" alt="Abrasados" class="cli-logo">
       <span class="cli-name">Abrasados</span>
     </a>
     <a href="https://maps.google.com/?q=Origenes+Restobar" target="_blank" rel="noopener" class="cli r delay-3">
-      <img src="./img/origenes.png" alt="Orígenes Restobar" class="cli-logo">
+      <img src="./img/Logos/origenes.png" alt="Orígenes Restobar" class="cli-logo">
       <span class="cli-name">Orígenes Restobar</span>
     </a>
     <a href="https://maps.google.com/?q=Caldema+Industrias" target="_blank" rel="noopener" class="cli r">
-      <img src="./img/caldema.png" alt="Caldema" class="cli-logo">
+      <img src="./img/Logos/caldema.png" alt="Caldema" class="cli-logo">
       <span class="cli-name">Caldema</span>
     </a>
-    <a href="https://maps.google.com/?q=Fent+Barri" target="_blank" rel="noopener" class="cli r delay-1 cli-color-logo" onmouseenter="this.querySelector('img').style.filter='opacity(.95) brightness(1.3)'" onmouseleave="this.querySelector('img').style.filter='opacity(.5) brightness(1.4)'">
-      <img src="./img/fent_barri.png" alt="Fent Barri" class="cli-logo" style="filter:opacity(.5) brightness(1.4);transition:filter .4s">
+    <a href="https://maps.google.com/?q=Fent+Barri" target="_blank" rel="noopener" class="cli r delay-1" onmouseenter="this.querySelector('img').style.filter='opacity(.95) brightness(1.3)'" onmouseleave="this.querySelector('img').style.filter='opacity(.5) brightness(1.4)'">
+      <img src="./img/Logos/fent_barri.png" alt="Fent Barri" class="cli-logo" style="filter:opacity(.5) brightness(1.4);transition:filter .4s">
       <span class="cli-name">Fent Barri</span>
     </a>
     <a href="https://maps.google.com/?q=Passione+Pizza" target="_blank" rel="noopener" class="cli r delay-2">
-      <img src="./img/passione_pizza.png" alt="Passione Pizza" class="cli-logo cli-logo-color">
+      <img src="./img/Logos/passione_pizza.png" alt="Passione Pizza" class="cli-logo cli-logo-color">
       <span class="cli-name">Passione Pizza</span>
     </a>
     <a href="https://maps.google.com/?q=Casa+Alex" target="_blank" rel="noopener" class="cli r delay-3">
-      <img src="./img/casa_alex.png" alt="Casa d'Alex" class="cli-logo cli-logo-color">
+      <img src="./img/Logos/casa_alex.png" alt="Casa d'Alex" class="cli-logo cli-logo-color">
       <span class="cli-name">Casa d'Alex</span>
     </a>
     <a href="https://maps.google.com/?q=Arroceria+Ca+Laespe" target="_blank" rel="noopener" class="cli r">
-      <img src="./img/ca_laespe.png" alt="Arroceria Ca La Espe" class="cli-logo cli-logo-color">
+      <img src="./img/Logos/ca_laespe.png" alt="Arroceria Ca La Espe" class="cli-logo cli-logo-color">
       <span class="cli-name">Arroceria Ca La Espe</span>
     </a>
   </div>
@@ -369,7 +332,6 @@
   </div>
 </section>
 
-<!-- CTA STRIP -->
 <div class="cta-strip">
   <div class="cta-strip-bg"></div>
   <div class="cta-strip-inner">
@@ -381,7 +343,6 @@
   </div>
 </div>
 
-<!-- ══ CONTACTO ══ -->
 <section class="contact-section" id="contacto">
   <div class="contact-inner">
     <div class="contact-info">
@@ -436,7 +397,6 @@
   </div>
 </section>
 
-<!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
@@ -463,7 +423,6 @@
 
 <script src="main.js"></script>
 <script>
-// Proceso: animate connecting line on scroll
 (function(){
   const grid = document.getElementById('procesoGrid');
   if(!grid) return;
@@ -473,7 +432,6 @@
       if(entry.isIntersecting){
         steps.forEach((step, i) => {
           setTimeout(() => {
-            step.classList.add('proc-active');
             const wrap = step.querySelector('.proc-num-wrap');
             if(wrap){
               wrap.style.background = 'rgba(0,212,255,.08)';
